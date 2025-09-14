@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Crossword Game</title>
+  </head>
+  <body>
+    <!-- ГЛАВНЫЙ КОНТЕЙНЕР для всей страницы -->
+    <div class="container">
+      <!-- ЗАГОЛОВОК H1 - как ты просил -->
+      <h1>JavaScript Crossword</h1>
+
+      <!-- ИГРОВАЯ ЗОНА: левая часть = кроссворд, правая = вопросы -->
+      <div class="game-area">
+        <!-- ЛЕВАЯ ЧАСТЬ: Сетка кроссворда -->
+        <div class="crossword-grid" id="crossword-grid">
+          <!-- Сюда JavaScript добавит ячейки -->
+        </div>
+
+        <!-- ПРАВАЯ ЧАСТЬ: Панель с вопросами -->
+        <div class="clues-panel">
+          <div class="clues-section">
+            <h3>Across:</h3>
+            <div id="across-clues" class="clues-list">
+              <!-- JavaScript will add clues here -->
+            </div>
+          </div>
+
+          <div class="clues-section">
+            <h3>Down:</h3>
+            <div id="down-clues" class="clues-list">
+              <!-- JavaScript will add clues here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
