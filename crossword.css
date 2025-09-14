@@ -1,0 +1,535 @@
+/* ===== RESET ===== */
+
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+/* Сбрасываем стили браузера по умолчанию */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Размеры включают padding и border */
+}
+
+/* Стили для всего body (тела страницы) */
+body {
+  font-family: Arial, sans-serif; /* Шрифт для всей страницы */
+  background: #f5f5f5; /* Светло-серый фон */
+  padding: 20px; /* Отступы от краев */
+  min-height: 100vh; /* Минимальная высота = высота экрана */
+}
+
+/* ===== ГЛАВНЫЙ КОНТЕЙНЕР ===== */
+.container {
+  max-width: 1200px; /* Максимальная ширина */
+  margin: 0 auto; /* Центрируем по горизонтали */
+  background: white; /* Белый фон */
+  border-radius: 10px; /* Закругленные углы */
+  padding: 30px; /* Внутренние отступы */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+/* ===== ЗАГОЛОВОК H1 ===== */
+h1 {
+  text-align: center; /* Центрируем текст */
+  color: #2c3e50; /* Темно-синий цвет */
+  margin-bottom: 30px; /* Отступ снизу */
+  font-size: 2.5em; /* Размер шрифта */
+}
+
+/* ===== ИГРОВАЯ ЗОНА (Grid макет) ===== */
+.game-area {
+  display: grid; /* Используем CSS Grid */
+  grid-template-columns: 2fr 1fr; /* 2 части левая, 1 часть правая */
+  gap: 30px; /* Расстояние между колонками */
+  align-items: start; /* Выравнивание по верху */
+}
+
+/* ===== СЕТКА КРОССВОРДА ===== */
+.crossword-grid {
+  display: grid; /* CSS Grid для ячеек */
+  grid-template-columns: repeat(16, 1fr); /* 16 колонок по ширине */
+  grid-template-rows: repeat(12, 1fr); /* 12 рядов по высоте - оптимизировано */
+  gap: 2px; /* Промежуток между ячейками */
+  width: 100%; /* Занимает всю ширину контейнера */
+  aspect-ratio: 16/12; /* Прямоугольная сетка 16:12 - оптимизировано */
+  max-width: 720px; /* Оптимизированная ширина для 16x12 сетки */
+  background: #ddd; /* Серый фон для промежутков */
+  padding: 10px; /* Отступы вокруг сетки */
+  border-radius: 8px; /* Закругленные углы */
+  margin: 0 auto; /* Центрируем */
+}
+
+/* Стили для ячейки кроссворда */
+.cell {
+  background: white; /* Белый фон ячейки */
+  border: 1px solid #ccc; /* Серая рамка */
+  display: flex; /* Flexbox для центрирования */
+  align-items: center; /* Вертикальное центрирование */
+  justify-content: center; /* Горизонтальное центрирование */
+  font-size: 18px; /* Оптимизированный размер шрифта */
+  font-weight: bold; /* Жирный шрифт */
+  cursor: pointer; /* Курсор-указатель */
+  position: relative; /* Для размещения номера */
+  aspect-ratio: 1; /* Квадратные ячейки */
+  min-width: 30px; /* Минимальная ширина ячейки */
+  min-height: 30px; /* Минимальная высота ячейки */
+  transition: all 0.2s ease; /* Плавные переходы */
+}
+
+/* Заблокированная (черная) ячейка */
+.cell.blocked {
+  background: #333; /* Темный фон */
+  cursor: default; /* Обычный курсор */
+}
+
+/* Активная (выбранная) ячейка */
+.cell.active {
+  background: #3498db; /* Синий фон */
+  color: white; /* Белый текст */
+}
+
+/* Номер ячейки (в левом верхнем углу) */
+.cell-number {
+  position: absolute; /* Абсолютное позиционирование */
+  top: 2px; /* 2px от верха */
+  left: 2px; /* 2px от левого края */
+  font-size: 10px; /* Маленький шрифт */
+  font-weight: bold; /* Жирный */
+  color: #333; /* Темный цвет */
+}
+
+/* ===== ПАНЕЛЬ С ВОПРОСАМИ (Flexbox) ===== */
+.clues-panel {
+  display: flex; /* Flexbox контейнер */
+  flex-direction: column; /* Вертикальное расположение */
+  gap: 20px; /* Расстояние между секциями */
+}
+
+/* Секция вопросов (Горизонтальные/Вертикальные) */
+.clues-section {
+  background: #ecf0f1; /* Светлый фон */
+  padding: 15px; /* Внутренние отступы */
+  border-radius: 5px; /* Закругленные углы */
+}
+
+/* Заголовки секций */
+.clues-section h3 {
+  color: #2c3e50; /* Темный цвет */
+  margin-bottom: 10px; /* Отступ снизу */
+  font-size: 1.2em; /* Размер шрифта */
+}
+
+/* Список вопросов */
+.clues-list {
+  display: flex; /* Flexbox */
+  flex-direction: column; /* Вертикально */
+  gap: 8px; /* Расстояние между вопросами */
+}
+
+/* Отдельный вопрос */
+.clue-item {
+  padding: 8px; /* Внутренние отступы */
+  background: white; /* Белый фон */
+  border-radius: 3px; /* Закругленные углы */
+  border-left: 3px solid #3498db; /* Синяя полоска слева */
+  cursor: pointer; /* Курсор-указатель */
+  transition: background 0.2s; /* Анимация фона */
+}
+
+/* Вопрос при наведении */
+.clue-item:hover {
+  background: #f8f9fa; /* Светлее при наведении */
+}
+
+/* Активный вопрос */
+.clue-item.active {
+  background: #3498db; /* Синий фон */
+  color: white; /* Белый текст */
+}
+
+/* ===== ЦВЕТОВОЕ КОДИРОВАНИЕ СЛОВ ===== */
+/* Каждое слово имеет свой пастельный цвет фона для мягкого разделения */
+/* Убрал разноцветные стили - теперь все ячейки одного цвета */
+
+/* Подсвеченные ячейки при наведении на клю - теперь простой белый фон */
+.word-highlight {
+  background: white !important; /* Простой белый фон при выделении */
+  border: 2px solid #3498db !important; /* Синяя рамка для выделения */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.score {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+}
+
+.controls {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#hint-btn {
+  background: #ffc107;
+  color: white;
+}
+
+#reset-btn {
+  background: #dc3545;
+  color: white;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.game-container {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 20px;
+}
+
+.crossword-container {
+  display: flex;
+  justify-content: center;
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+#crossword-grid {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  gap: 1px;
+  background: #333;
+  border: 2px solid #ddd;
+  padding: 5px;
+  aspect-ratio: 16/12;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.cell {
+  background: white;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  aspect-ratio: 1;
+  min-width: 30px;
+  min-height: 30px;
+}
+
+.cell.black {
+  background: #333;
+}
+
+.cell input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  background: transparent;
+  text-transform: uppercase;
+  color: #333;
+}
+
+.cell input:focus {
+  outline: none;
+  background: #e3f2fd;
+}
+
+.cell.highlighted {
+  background: #ffeb3b !important;
+}
+
+.cell.correct {
+  background: #c8e6c9 !important;
+}
+
+.cell-number {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  font-size: 8px;
+  font-weight: bold;
+  color: #2196f3;
+  background: white;
+  width: 12px;
+  height: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.clues-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.clues-section {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.clues-section h3 {
+  margin-bottom: 10px;
+  color: #333;
+  border-bottom: 2px solid #4caf50;
+  padding-bottom: 5px;
+  font-size: 1.1em;
+}
+
+.clue {
+  margin-bottom: 5px;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.clue:hover {
+  background: #e3f2fd;
+}
+
+.clue.active {
+  background: #4caf50;
+  color: white;
+}
+
+.clue.completed {
+  background: #8bc34a;
+  color: white;
+  text-decoration: line-through;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+  .game-container {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .clues-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    max-height: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .game-info {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  #crossword-grid {
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(12, 1fr);
+    max-width: 480px;
+  }
+
+  .cell {
+    min-width: 25px;
+    min-height: 25px;
+    aspect-ratio: 1;
+  }
+
+  .cell input {
+    font-size: 10px;
+  }
+
+  .clues-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== NEW INTERACTIVE STYLES ===== */
+
+/* Shake animation for wrong letters */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: translateX(-3px);
+  }
+  20%,
+  40%,
+  60%,
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+.shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Highlighted word cells */
+.cell.highlighted {
+  background: #fff3cd !important; /* Light yellow background */
+  border: 2px solid #ffc107 !important; /* Yellow border */
+}
+
+.cell.current-word {
+  box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+}
+
+/* Clickable clues */
+.clue-item.clickable {
+  cursor: pointer;
+  padding: 8px 12px;
+  margin: 4px 0;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  border-left: 4px solid transparent;
+}
+
+.clue-item.clickable:hover {
+  background: #e9ecef;
+  border-left-color: #007bff;
+  transform: translateX(4px);
+}
+
+.clue-item.active {
+  background: #007bff !important;
+  color: white !important;
+  border-left-color: #0056b3 !important;
+  font-weight: bold;
+}
+
+.clue-item.completed {
+  background: #d4edda !important;
+  border-left-color: #28a745 !important;
+}
+
+.clue-number {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.clue-text {
+  transition: all 0.3s ease;
+}
+
+/* Word completion animation */
+@keyframes celebrate {
+  0% {
+    transform: scale(1);
+    background: #fff3cd;
+  }
+  50% {
+    transform: scale(1.1);
+    background: #d4edda;
+  }
+  100% {
+    transform: scale(1);
+    background: #d4edda;
+  }
+}
+
+.word-complete {
+  animation: celebrate 0.6s ease-in-out;
+}
+
+/* Input field enhancements */
+.cell input {
+  transition: all 0.2s ease;
+}
+
+.cell input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Success message styling */
+.success-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  animation: slideIn 0.3s ease-out;
+  z-index: 1000;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive improvements for interactivity */
+@media (max-width: 768px) {
+  .clue-item.clickable {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .clue-item.clickable:hover {
+    transform: none; /* Remove transform on mobile */
+  }
+}
