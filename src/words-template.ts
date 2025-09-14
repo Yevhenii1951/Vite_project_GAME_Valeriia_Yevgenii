@@ -1,5 +1,15 @@
+// ===== Interfaces (Data Types) =====
+interface Word {
+  text: string;
+  clue: string;
+  startX: number;
+  startY: number;
+  direction: "across" | "down";
+  number: number;
+}
+
 // Koordinates von Wörtern im Raster
-export const WORDS_TEMPLATE = [
+export const WORDS_TEMPLATE: Word[] = [
   // ===== HORIZONTAL WORDS (ACROSS) =====
   {
     text: "ASYNC",
