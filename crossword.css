@@ -45,12 +45,12 @@ h1 {
 /* ===== СЕТКА КРОССВОРДА ===== */
 .crossword-grid {
   display: grid; /* CSS Grid для ячеек */
-  grid-template-columns: repeat(16, 1fr); /* 16 колонок по ширине */
-  grid-template-rows: repeat(12, 1fr); /* 12 рядов по высоте - оптимизировано */
+  grid-template-columns: repeat(16, 1fr); /* 16 колонок для UNMOUNT */
+  grid-template-rows: repeat(16, 1fr); /* 16 рядов для размещения всех слов */
   gap: 2px; /* Промежуток между ячейками */
   width: 100%; /* Занимает всю ширину контейнера */
-  aspect-ratio: 16/12; /* Прямоугольная сетка 16:12 - оптимизировано */
-  max-width: 720px; /* Оптимизированная ширина для 16x12 сетки */
+  aspect-ratio: 16/16; /* Квадратная сетка 16:16 */
+  max-width: 640px; /* Увеличена максимальная ширина для 16 колонок */
   background: #ddd; /* Серый фон для промежутков */
   padding: 10px; /* Отступы вокруг сетки */
   border-radius: 8px; /* Закругленные углы */
@@ -64,13 +64,11 @@ h1 {
   display: flex; /* Flexbox для центрирования */
   align-items: center; /* Вертикальное центрирование */
   justify-content: center; /* Горизонтальное центрирование */
-  font-size: 18px; /* Оптимизированный размер шрифта */
+  font-size: 20px; /* Увеличенный размер шрифта */
   font-weight: bold; /* Жирный шрифт */
   cursor: pointer; /* Курсор-указатель */
   position: relative; /* Для размещения номера */
-  aspect-ratio: 1; /* Квадратные ячейки */
-  min-width: 30px; /* Минимальная ширина ячейки */
-  min-height: 30px; /* Минимальная высота ячейки */
+  min-height: 35px; /* Минимальная высота ячейки */
   transition: all 0.2s ease; /* Плавные переходы */
 }
 
@@ -147,12 +145,138 @@ h1 {
 
 /* ===== ЦВЕТОВОЕ КОДИРОВАНИЕ СЛОВ ===== */
 /* Каждое слово имеет свой пастельный цвет фона для мягкого разделения */
-/* Убрал разноцветные стили - теперь все ячейки одного цвета */
+/* Приглушённые тона с низкой прозрачностью для комфортного восприятия */
 
-/* Подсвеченные ячейки при наведении на клю - теперь простой белый фон */
+.word-color-1 {
+  background: rgba(255, 182, 193, 0.4) !important;
+  border: 1px solid rgba(255, 182, 193, 0.6);
+} /* Пастельный розовый */
+.word-color-2 {
+  background: rgba(255, 218, 185, 0.4) !important;
+  border: 1px solid rgba(255, 218, 185, 0.6);
+} /* Пастельный персик */
+.word-color-3 {
+  background: rgba(255, 255, 224, 0.4) !important;
+  border: 1px solid rgba(255, 255, 224, 0.6);
+} /* Пастельный жёлтый */
+.word-color-4 {
+  background: rgba(173, 216, 230, 0.4) !important;
+  border: 1px solid rgba(173, 216, 230, 0.6);
+} /* Пастельный голубой */
+.word-color-5 {
+  background: rgba(152, 251, 152, 0.4) !important;
+  border: 1px solid rgba(152, 251, 152, 0.6);
+} /* Пастельный зелёный */
+.word-color-6 {
+  background: rgba(221, 160, 221, 0.4) !important;
+  border: 1px solid rgba(221, 160, 221, 0.6);
+} /* Пастельный фиолетовый */
+.word-color-7 {
+  background: rgba(255, 182, 193, 0.4) !important;
+  border: 1px solid rgba(255, 182, 193, 0.6);
+} /* Пастельный розовый */
+.word-color-8 {
+  background: rgba(175, 238, 238, 0.4) !important;
+  border: 1px solid rgba(175, 238, 238, 0.6);
+} /* Пастельный циан */
+.word-color-9 {
+  background: rgba(255, 228, 181, 0.4) !important;
+  border: 1px solid rgba(255, 228, 181, 0.6);
+} /* Пастельный оранж */
+.word-color-10 {
+  background: rgba(183, 244, 216, 0.4) !important;
+  border: 1px solid rgba(183, 244, 216, 0.6);
+} /* Пастельный лайм */
+.word-color-11 {
+  background: rgba(255, 206, 186, 0.4) !important;
+  border: 1px solid rgba(255, 206, 186, 0.6);
+} /* Пастельный коралл */
+.word-color-12 {
+  background: rgba(191, 191, 255, 0.4) !important;
+  border: 1px solid rgba(191, 191, 255, 0.6);
+} /* Пастельный индиго */
+.word-color-13 {
+  background: rgba(211, 211, 211, 0.4) !important;
+  border: 1px solid rgba(211, 211, 211, 0.6);
+} /* Пастельный серый */
+.word-color-14 {
+  background: rgba(255, 248, 178, 0.4) !important;
+  border: 1px solid rgba(255, 248, 178, 0.6);
+} /* Пастельное золото */
+.word-color-15 {
+  background: rgba(188, 170, 164, 0.4) !important;
+  border: 1px solid rgba(188, 170, 164, 0.6);
+} /* Пастельный коричневый */
+.word-color-16 {
+  background: rgba(197, 186, 255, 0.4) !important;
+  border: 1px solid rgba(197, 186, 255, 0.6);
+} /* Мягкий фиолетовый */
+.word-color-17 {
+  background: rgba(178, 223, 219, 0.4) !important;
+  border: 1px solid rgba(178, 223, 219, 0.6);
+} /* Мягкий изумруд */
+.word-color-18 {
+  background: rgba(176, 196, 222, 0.4) !important;
+  border: 1px solid rgba(176, 196, 222, 0.6);
+} /* Мягкий сталь */
+.word-color-19 {
+  background: rgba(255, 192, 203, 0.4) !important;
+  border: 1px solid rgba(255, 192, 203, 0.6);
+} /* Мягкий розовый */
+.word-color-20 {
+  background: rgba(187, 222, 251, 0.4) !important;
+  border: 1px solid rgba(187, 222, 251, 0.6);
+} /* Мягкий небесный */
+.word-color-21 {
+  background: rgba(240, 230, 140, 0.4) !important;
+  border: 1px solid rgba(240, 230, 140, 0.6);
+} /* Мягкий хаки */
+.word-color-22 {
+  background: rgba(230, 204, 255, 0.4) !important;
+  border: 1px solid rgba(230, 204, 255, 0.6);
+} /* Мягкая лаванда */
+.word-color-23 {
+  background: rgba(255, 239, 213, 0.4) !important;
+  border: 1px solid rgba(255, 239, 213, 0.6);
+} /* Мягкий абрикос */
+.word-color-24 {
+  background: rgba(193, 255, 193, 0.4) !important;
+  border: 1px solid rgba(193, 255, 193, 0.6);
+} /* Мягкая мята */
+.word-color-25 {
+  background: rgba(255, 205, 210, 0.4) !important;
+  border: 1px solid rgba(255, 205, 210, 0.6);
+} /* Мягкий красный */
+.word-color-26 {
+  background: rgba(179, 205, 224, 0.4) !important;
+  border: 1px solid rgba(179, 205, 224, 0.6);
+} /* Мягкий сапфир */
+.word-color-27 {
+  background: rgba(204, 187, 221, 0.4) !important;
+  border: 1px solid rgba(204, 187, 221, 0.6);
+} /* Мягкий аметист */
+.word-color-28 {
+  background: rgba(255, 228, 196, 0.4) !important;
+  border: 1px solid rgba(255, 228, 196, 0.6);
+} /* Мягкий бисквит */
+.word-color-29 {
+  background: rgba(204, 255, 229, 0.4) !important;
+  border: 1px solid rgba(204, 255, 229, 0.6);
+} /* Мягкий морской */
+.word-color-30 {
+  background: rgba(230, 230, 250, 0.4) !important;
+  border: 1px solid rgba(230, 230, 250, 0.6);
+} /* Мягкий лавандовый */
+
+/* Подсвеченные ячейки при наведении на клю */
 .word-highlight {
-  background: white !important; /* Простой белый фон при выделении */
-  border: 2px solid #3498db !important; /* Синяя рамка для выделения */
+  background: rgba(
+    255,
+    248,
+    178,
+    0.5
+  ) !important; /* Мягкий золотистый при выделении */
+  border: 2px solid rgba(255, 193, 7, 0.7) !important; /* Приглушённая золотая рамка */
 }
 
 .container {
@@ -230,27 +354,23 @@ button:hover {
 
 #crossword-grid {
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(12, 1fr);
+  grid-template-columns: repeat(16, 30px);
+  grid-template-rows: repeat(16, 30px);
   gap: 1px;
   background: #333;
   border: 2px solid #ddd;
   padding: 5px;
-  aspect-ratio: 16/12;
-  max-width: 720px;
-  margin: 0 auto;
 }
 
 .cell {
+  width: 30px;
+  height: 30px;
   background: white;
   border: 1px solid #ddd;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
-  aspect-ratio: 1;
-  min-width: 30px;
-  min-height: 30px;
 }
 
 .cell.black {
@@ -373,15 +493,13 @@ button:hover {
   }
 
   #crossword-grid {
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    max-width: 480px;
+    grid-template-columns: repeat(16, 20px);
+    grid-template-rows: repeat(16, 20px);
   }
 
   .cell {
-    min-width: 25px;
-    min-height: 25px;
-    aspect-ratio: 1;
+    width: 20px;
+    height: 20px;
   }
 
   .cell input {
@@ -520,6 +638,24 @@ button:hover {
     transform: translateX(0);
     opacity: 1;
   }
+}
+
+/* Hint animation - glowing effect for hinted letters */
+@keyframes hint {
+  0%,
+  100% {
+    box-shadow: 0 0 5px #f39c12;
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 20px #f39c12, 0 0 30px #f39c12;
+    transform: scale(1.05);
+  }
+}
+
+.hint-animation {
+  animation: hint 1s ease-in-out;
+  background-color: rgba(243, 156, 18, 0.1) !important;
 }
 
 /* Responsive improvements for interactivity */
