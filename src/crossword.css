@@ -1,45 +1,45 @@
 /* ===== RESET ===== */
+/* Сброс стилей браузера / Reset browser styles */
 
 /* ===== БАЗОВЫЕ СТИЛИ ===== */
-/* Сбрасываем стили браузера по умолчанию */
+/* Базовые стили страницы / Basic page styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box; /* Размеры включают padding и border */
+  margin: 0; /* Убираем внешние отступы / Remove margins */
+  padding: 0; /* Убираем внутренние отступы / Remove paddings */
+  box-sizing: border-box; /* Размеры с padding и border / Sizing includes padding and border */
 }
 
-/* Стили для всего body (тела страницы) */
 body {
-  font-family: Arial, sans-serif; /* Шрифт для всей страницы */
-  background: #f5f5f5; /* Светло-серый фон */
-  padding: 20px; /* Отступы от краев */
-  min-height: 100vh; /* Минимальная высота = высота экрана */
+  font-family: Arial, sans-serif; /* Шрифт страницы / Page font */
+  background: #f5f5f5; /* Светлый фон / Light background */
+  padding: 20px; /* Отступы вокруг / Page padding */
+  min-height: 100vh; /* Минимальная высота / Min height screen */
 }
 
 /* ===== ГЛАВНЫЙ КОНТЕЙНЕР ===== */
 .container {
-  max-width: 1200px; /* Максимальная ширина */
-  margin: 0 auto; /* Центрируем по горизонтали */
-  background: white; /* Белый фон */
-  border-radius: 10px; /* Закругленные углы */
-  padding: 30px; /* Внутренние отступы */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень */
+  max-width: 1200px; /* Макс. ширина / Max width */
+  margin: 0 auto; /* Центрирование / Center horizontally */
+  background: white; /* Белый фон / White background */
+  border-radius: 10px; /* Скругление углов / Rounded corners */
+  padding: 30px; /* Внутренний отступ / Inner padding */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень / Box shadow */
 }
 
 /* ===== ЗАГОЛОВОК H1 ===== */
 h1 {
-  text-align: center; /* Центрируем текст */
-  color: #2c3e50; /* Темно-синий цвет */
-  margin-bottom: 30px; /* Отступ снизу */
-  font-size: 2.5em; /* Размер шрифта */
+  text-align: center; /* Центр текста / Center text */
+  color: #2c3e50; /* Цвет текста / Text color */
+  margin-bottom: 30px; /* Отступ снизу / Bottom margin */
+  font-size: 2.5em; /* Размер шрифта / Font size */
 }
 
 /* ===== ИГРОВАЯ ЗОНА (Grid макет) ===== */
 .game-area {
-  display: grid; /* Используем CSS Grid */
-  grid-template-columns: 2fr 1fr; /* 2 части левая, 1 часть правая */
-  gap: 30px; /* Расстояние между колонками */
-  align-items: start; /* Выравнивание по верху */
+  display: grid; /* CSS Grid для макета / Use CSS Grid layout */
+  grid-template-columns: 2fr 1fr; /* Левая/правая часть / Left/right part */
+  gap: 30px; /* Расстояние между колонками / Column gap */
+  align-items: start; /* Выравнивание по верху / Align top */
 }
 
 /* ===== СЕТКА КРОССВОРДА ===== */
@@ -71,29 +71,29 @@ h1 {
   aspect-ratio: 1; /* Квадратные ячейки */
   min-width: 30px; /* Минимальная ширина ячейки */
   min-height: 30px; /* Минимальная высота ячейки */
-  transition: all 0.2s ease; /* Плавные переходы */
+  transition: all 0.2s ease; /* Плавные переходы / Smooth transitions */
 }
 
-/* Заблокированная (черная) ячейка */
+/* Заблокированная (черная) ячейка / Blocked (black) cell */
 .cell.blocked {
-  background: #333; /* Темный фон */
-  cursor: default; /* Обычный курсор */
+  background: #333; /* Темный фон / Dark background */
+  cursor: default; /* Обычный курсор / Default cursor */
 }
 
-/* Активная (выбранная) ячейка */
+/* Активная (выбранная) ячейка / Active (selected) cell */
 .cell.active {
-  background: #3498db; /* Синий фон */
-  color: white; /* Белый текст */
+  background: #3498db; /* Синий фон / Blue background */
+  color: white; /* Белый текст / White text */
 }
 
-/* Номер ячейки (в левом верхнем углу) */
+/* Номер ячейки (в левом верхнем углу) / Cell number (top left corner) */
 .cell-number {
-  position: absolute; /* Абсолютное позиционирование */
-  top: 2px; /* 2px от верха */
-  left: 2px; /* 2px от левого края */
-  font-size: 10px; /* Маленький шрифт */
-  font-weight: bold; /* Жирный */
-  color: #333; /* Темный цвет */
+  position: absolute; /* Абсолютное позиционирование / Absolute positioning */
+  top: 2px; /* 2px от верха / 2px from top */
+  left: 2px; /* 2px от левого края / 2px from left */
+  font-size: 10px; /* Маленький шрифт / Small font size */
+  font-weight: bold; /* Жирный / Bold */
+  color: #333; /* Темный цвет / Dark color */
 }
 
 /* ===== ПАНЕЛЬ С ВОПРОСАМИ (Flexbox) ===== */
@@ -117,419 +117,441 @@ h1 {
   font-size: 1.2em; /* Размер шрифта */
 }
 
-/* Список вопросов */
+/* Список вопросов / Clues list */
 .clues-list {
-  display: flex; /* Flexbox */
-  flex-direction: column; /* Вертикально */
-  gap: 8px; /* Расстояние между вопросами */
+  display: flex; /* Flexbox / Flexbox */
+  flex-direction: column; /* Вертикально / Vertical */
+  gap: 8px; /* Расстояние между вопросами / Gap between clues */
 }
 
-/* Отдельный вопрос */
+/* Отдельный вопрос / Single clue */
 .clue-item {
-  padding: 8px; /* Внутренние отступы */
-  background: white; /* Белый фон */
-  border-radius: 3px; /* Закругленные углы */
-  border-left: 3px solid #3498db; /* Синяя полоска слева */
-  cursor: pointer; /* Курсор-указатель */
-  transition: background 0.2s; /* Анимация фона */
+  padding: 8px; /* Внутренние отступы / Inner padding */
+  background: white; /* Белый фон / White background */
+  border-radius: 3px; /* Закругленные углы / Rounded corners */
+  border-left: 3px solid #3498db; /* Синяя полоска слева / Blue left border */
+  cursor: pointer; /* Курсор-указатель / Pointer cursor */
+  transition: background 0.2s; /* Анимация фона / Background animation */
 }
 
-/* Вопрос при наведении */
+/* Вопрос при наведении / Clue on hover */
 .clue-item:hover {
-  background: #f8f9fa; /* Светлее при наведении */
+  background: #f8f9fa; /* Светлее при наведении / Lighter on hover */
 }
 
-/* Активный вопрос */
+/* Активный вопрос / Active clue */
 .clue-item.active {
-  background: #3498db; /* Синий фон */
-  color: white; /* Белый текст */
+  background: #3498db; /* Синий фон / Blue background */
+  color: white; /* Белый текст / White text */
 }
 
-/* ===== ЦВЕТОВОЕ КОДИРОВАНИЕ СЛОВ ===== */
-/* Каждое слово имеет свой пастельный цвет фона для мягкого разделения */
-/* Убрал разноцветные стили - теперь все ячейки одного цвета */
+/* ===== ЦВЕТОВОЕ КОДИРОВАНИЕ СЛОВ ===== / Word color coding */
+/* Каждое слово имеет свой пастельный цвет фона для мягкого разделения / Each word has its own pastel background for soft separation */
+/* Убрал разноцветные стили - теперь все ячейки одного цвета / Removed multicolor styles - now all cells are one color */
 
-/* Подсвеченные ячейки при наведении на клю - теперь простой белый фон */
+/* Подсвеченные ячейки при наведении на клю - теперь простой белый фон / Highlighted cells on clue hover - now simple white background */
 .word-highlight {
-  background: white !important; /* Простой белый фон при выделении */
-  border: 2px solid #3498db !important; /* Синяя рамка для выделения */
+  background: white !important; /* Простой белый фон при выделении / Simple white background on highlight */
+  border: 2px solid #3498db !important; /* Синяя рамка для выделения / Blue border for highlight */
 }
 
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  background: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px; /* Макс. ширина / Max width */
+  margin: 0 auto; /* Центрирование / Center horizontally */
+  background: white; /* Белый фон / White background */
+  border-radius: 10px; /* Скругление углов / Rounded corners */
+  padding: 20px; /* Внутренний отступ / Inner padding */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Тень / Box shadow */
 }
 
 h1 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 2em;
+  text-align: center; /* Центр текста / Center text */
+  color: #333; /* Цвет текста / Text color */
+  margin-bottom: 20px; /* Отступ снизу / Bottom margin */
+  font-size: 2em; /* Размер шрифта / Font size */
 }
 
 .game-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 15px;
-  background: #f8f9fa;
-  border-radius: 8px;
+  display: flex; /* Flexbox / Flexbox */
+  justify-content: space-between; /* Пространство между / Space between */
+  align-items: center; /* Выравнивание по центру / Center alignment */
+  margin-bottom: 20px; /* Отступ снизу / Bottom margin */
+  padding: 15px; /* Внутренний отступ / Inner padding */
+  background: #f8f9fa; /* Светлый фон / Light background */
+  border-radius: 8px; /* Скругленные углы / Rounded corners */
 }
 
 .score {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #333;
+  font-size: 1.2em; /* Размер шрифта / Font size */
+  font-weight: bold; /* Жирный / Bold */
+  color: #333; /* Цвет / Color */
 }
 
 .controls {
-  display: flex;
-  gap: 10px;
+  display: flex; /* Flexbox / Flexbox */
+  gap: 10px; /* Расстояние между / Gap between */
 }
 
 button {
-  padding: 10px 15px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
+  padding: 10px 15px; /* Внутренние отступы / Inner padding */
+  border: none; /* Без рамки / No border */
+  border-radius: 5px; /* Скругленные углы / Rounded corners */
+  cursor: pointer; /* Курсор-указатель / Pointer cursor */
+  font-size: 14px; /* Размер шрифта / Font size */
 }
 
 #hint-btn {
-  background: #ffc107;
-  color: white;
+  background: #ffc107; /* Желтый фон / Yellow background */
+  color: white; /* Белый текст / White text */
 }
 
 #reset-btn {
-  background: #dc3545;
-  color: white;
+  background: #dc3545; /* Красный фон / Red background */
+  color: white; /* Белый текст / White text */
 }
 
 button:hover {
-  opacity: 0.8;
+  opacity: 0.8; /* Прозрачность при наведении / Opacity on hover */
 }
 
 .game-container {
-  display: grid;
-  grid-template-columns: 1fr 350px;
-  gap: 20px;
+  display: grid; /* CSS Grid / CSS Grid */
+  grid-template-columns: 1fr 350px; /* Левая/правая часть / Left/right part */
+  gap: 20px; /* Расстояние между / Gap between */
 }
 
 .crossword-container {
-  display: flex;
-  justify-content: center;
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
+  display: flex; /* Flexbox / Flexbox */
+  justify-content: center; /* Центрирование / Centering */
+  background: #f8f9fa; /* Светлый фон / Light background */
+  padding: 15px; /* Внутренний отступ / Inner padding */
+  border-radius: 8px; /* Скругленные углы / Rounded corners */
 }
 
 #crossword-grid {
-  display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(12, 1fr);
-  gap: 1px;
-  background: #333;
-  border: 2px solid #ddd;
-  padding: 5px;
-  aspect-ratio: 16/12;
-  max-width: 720px;
-  margin: 0 auto;
+  display: grid; /* CSS Grid / CSS Grid */
+  grid-template-columns: repeat(16, 1fr); /* 16 колонок / 16 columns */
+  grid-template-rows: repeat(12, 1fr); /* 12 рядов / 12 rows */
+  gap: 1px; /* Промежуток / Gap */
+  background: #333; /* Темный фон / Dark background */
+  border: 2px solid #ddd; /* Серая рамка / Gray border */
+  padding: 5px; /* Внутренний отступ / Inner padding */
+  aspect-ratio: 16/12; /* Пропорции / Aspect ratio */
+  max-width: 720px; /* Макс. ширина / Max width */
+  margin: 0 auto; /* Центрирование / Centering */
 }
 
 .cell {
-  background: white;
-  border: 1px solid #ddd;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  aspect-ratio: 1;
-  min-width: 30px;
-  min-height: 30px;
+  background: white; /* Белый фон / White background */
+  border: 1px solid #ddd; /* Серая рамка / Gray border */
+  display: flex; /* Flexbox / Flexbox */
+  align-items: center; /* Вертикальное центрирование / Vertical center */
+  justify-content: center; /* Горизонтальное центрирование / Horizontal center */
+  position: relative; /* Для номера / For number */
+  aspect-ratio: 1; /* Квадрат / Square */
+  min-width: 30px; /* Мин. ширина / Min width */
+  min-height: 30px; /* Мин. высота / Min height */
 }
 
 .cell.black {
-  background: #333;
+  background: #333; /* Черный фон / Black background */
 }
 
 .cell input {
-  width: 100%;
-  height: 100%;
-  border: none;
-  text-align: center;
-  font-size: 14px;
-  font-weight: bold;
-  background: transparent;
-  text-transform: uppercase;
-  color: #333;
+  width: 100%; /* Ширина 100% / Full width */
+  height: 100%; /* Высота 100% / Full height */
+  border: none; /* Без рамки / No border */
+  text-align: center; /* Центр текста / Center text */
+  font-size: 14px; /* Размер шрифта / Font size */
+  font-weight: bold; /* Жирный / Bold */
+  background: transparent; /* Прозрачный фон / Transparent background */
+  text-transform: uppercase; /* Верхний регистр / Uppercase */
+  color: #333; /* Цвет текста / Text color */
 }
 
 .cell input:focus {
-  outline: none;
-  background: #e3f2fd;
+  outline: none; /* Без обводки / No outline */
+  background: #e3f2fd; /* Голубой фон / Blue background */
 }
 
 .cell.highlighted {
-  background: #ffeb3b !important;
+  background: #ffeb3b !important; /* Желтый фон / Yellow background */
 }
 
 .cell.correct {
-  background: #c8e6c9 !important;
+  background: #c8e6c9 !important; /* Зеленый фон / Green background */
 }
 
 .cell-number {
-  position: absolute;
-  top: 1px;
-  left: 2px;
-  font-size: 8px;
-  font-weight: bold;
-  color: #2196f3;
-  background: white;
-  width: 12px;
-  height: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute; /* Абсолютное позиционирование / Absolute positioning */
+  top: 1px; /* 1px от верха / 1px from top */
+  left: 2px; /* 2px от левого края / 2px from left */
+  font-size: 8px; /* Маленький шрифт / Small font size */
+  font-weight: bold; /* Жирный / Bold */
+  color: #2196f3; /* Синий цвет / Blue color */
+  background: white; /* Белый фон / White background */
+  width: 12px; /* Ширина / Width */
+  height: 12px; /* Высота / Height */
+  display: flex; /* Flexbox / Flexbox */
+  align-items: center; /* Вертикальное центрирование / Vertical center */
+  justify-content: center; /* Горизонтальное центрирование / Horizontal center */
 }
 
 .clues-container {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  max-height: 500px;
-  overflow-y: auto;
+  display: flex; /* Flexbox / Flexbox */
+  flex-direction: column; /* Вертикально / Vertical */
+  gap: 15px; /* Расстояние между / Gap between */
+  max-height: 500px; /* Макс. высота / Max height */
+  overflow-y: auto; /* Прокрутка / Scroll */
 }
 
 .clues-section {
-  background: #f8f9fa;
-  padding: 15px;
-  border-radius: 8px;
+  background: #f8f9fa; /* Светлый фон / Light background */
+  padding: 15px; /* Внутренний отступ / Inner padding */
+  border-radius: 8px; /* Скругленные углы / Rounded corners */
 }
 
 .clues-section h3 {
-  margin-bottom: 10px;
-  color: #333;
-  border-bottom: 2px solid #4caf50;
-  padding-bottom: 5px;
-  font-size: 1.1em;
+  margin-bottom: 10px; /* Отступ снизу / Bottom margin */
+  color: #333; /* Цвет текста / Text color */
+  border-bottom: 2px solid #4caf50; /* Зеленая линия / Green line */
+  padding-bottom: 5px; /* Внутренний отступ / Inner padding */
+  font-size: 1.1em; /* Размер шрифта / Font size */
 }
 
 .clue {
-  margin-bottom: 5px;
-  padding: 8px;
-  cursor: pointer;
-  border-radius: 4px;
-  font-size: 14px;
+  margin-bottom: 5px; /* Отступ снизу / Bottom margin */
+  padding: 8px; /* Внутренний отступ / Inner padding */
+  cursor: pointer; /* Курсор-указатель / Pointer cursor */
+  border-radius: 4px; /* Скругленные углы / Rounded corners */
+  font-size: 14px; /* Размер шрифта / Font size */
 }
 
 .clue:hover {
-  background: #e3f2fd;
+  background: #e3f2fd; /* Голубой фон при наведении / Blue on hover */
 }
 
 .clue.active {
-  background: #4caf50;
-  color: white;
+  background: #4caf50; /* Зеленый фон / Green background */
+  color: white; /* Белый текст / White text */
 }
 
 .clue.completed {
-  background: #8bc34a;
-  color: white;
-  text-decoration: line-through;
+  background: #8bc34a; /* Зеленый фон / Green background */
+  color: white; /* Белый текст / White text */
+  text-decoration: line-through; /* Зачеркнутый текст / Strikethrough text */
 }
 
-/* Responsive design */
+/* Responsive design / Адаптивный дизайн */
 @media (max-width: 900px) {
   .game-container {
-    grid-template-columns: 1fr;
-    gap: 15px;
+    grid-template-columns: 1fr; /* Одна колонка / One column */
+    gap: 15px; /* Расстояние / Gap */
   }
 
   .clues-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-    max-height: none;
+    display: grid; /* CSS Grid / CSS Grid */
+    grid-template-columns: 1fr 1fr; /* Две колонки / Two columns */
+    gap: 10px; /* Расстояние / Gap */
+    max-height: none; /* Без ограничения высоты / No max height */
   }
 }
 
 @media (max-width: 600px) {
   .container {
-    padding: 10px;
+    padding: 10px; /* Внутренний отступ / Inner padding */
   }
 
   h1 {
-    font-size: 1.5em;
+    font-size: 1.5em; /* Размер шрифта / Font size */
   }
 
   .game-info {
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
+    flex-direction: column; /* Вертикально / Vertical */
+    gap: 10px; /* Расстояние / Gap */
+    text-align: center; /* Центр текста / Center text */
   }
 
   #crossword-grid {
-    grid-template-columns: repeat(16, 1fr);
-    grid-template-rows: repeat(12, 1fr);
-    max-width: 480px;
+    grid-template-columns: repeat(16, 1fr); /* 16 колонок / 16 columns */
+    grid-template-rows: repeat(12, 1fr); /* 12 рядов / 12 rows */
+    max-width: 480px; /* Макс. ширина / Max width */
   }
 
   .cell {
-    min-width: 25px;
-    min-height: 25px;
-    aspect-ratio: 1;
+    min-width: 25px; /* Мин. ширина / Min width */
+    min-height: 25px; /* Мин. высота / Min height */
+    aspect-ratio: 1; /* Квадрат / Square */
   }
 
   .cell input {
-    font-size: 10px;
+    font-size: 10px; /* Размер шрифта / Font size */
   }
 
   .clues-container {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* Одна колонка / One column */
   }
 }
 
-/* ===== NEW INTERACTIVE STYLES ===== */
+/* ===== NEW INTERACTIVE STYLES ===== / Новые интерактивные стили */
 
-/* Shake animation for wrong letters */
+/* Shake animation for wrong letters / Анимация тряски для ошибок */
 @keyframes shake {
   0%,
   100% {
-    transform: translateX(0);
+    transform: translateX(0); /* Без смещения / No shift */
   }
   10%,
   30%,
   50%,
   70%,
   90% {
-    transform: translateX(-3px);
+    transform: translateX(-3px); /* Смещение влево / Shift left */
   }
   20%,
   40%,
   60%,
   80% {
-    transform: translateX(3px);
+    transform: translateX(3px); /* Смещение вправо / Shift right */
   }
 }
 
 .shake {
-  animation: shake 0.5s ease-in-out;
+  animation: shake 0.5s ease-in-out; /* Анимация тряски / Shake animation */
 }
 
-/* Highlighted word cells */
+/* Highlighted word cells / Подсвеченные ячейки слова */
 .cell.highlighted {
-  background: #fff3cd !important; /* Light yellow background */
-  border: 2px solid #ffc107 !important; /* Yellow border */
+  background: #fff3cd !important; /* Светло-желтый фон / Light yellow background */
+  border: 2px solid #ffc107 !important; /* Желтая рамка / Yellow border */
 }
 
 .cell.current-word {
-  box-shadow: 0 0 5px rgba(255, 193, 7, 0.5);
+  box-shadow: 0 0 5px rgba(255, 193, 7, 0.5); /* Тень / Shadow */
 }
 
-/* Clickable clues */
+/* Clickable clues / Кликабельные вопросы */
 .clue-item.clickable {
-  cursor: pointer;
-  padding: 8px 12px;
-  margin: 4px 0;
-  border-radius: 6px;
-  transition: all 0.2s ease;
-  border-left: 4px solid transparent;
+  cursor: pointer; /* Курсор-указатель / Pointer cursor */
+  padding: 8px 12px; /* Внутренние отступы / Inner padding */
+  margin: 4px 0; /* Отступы / Margins */
+  border-radius: 6px; /* Скругленные углы / Rounded corners */
+  transition: all 0.2s ease; /* Плавная анимация / Smooth animation */
+  border-left: 4px solid transparent; /* Левая граница / Left border */
 }
 
 .clue-item.clickable:hover {
-  background: #e9ecef;
-  border-left-color: #007bff;
-  transform: translateX(4px);
+  background: #e9ecef; /* Светлый фон / Light background */
+  border-left-color: #007bff; /* Синяя граница / Blue border */
+  transform: translateX(4px); /* Смещение вправо / Shift right */
 }
 
 .clue-item.active {
-  background: #007bff !important;
-  color: white !important;
-  border-left-color: #0056b3 !important;
-  font-weight: bold;
+  background: #007bff !important; /* Синий фон / Blue background */
+  color: white !important; /* Белый текст / White text */
+  border-left-color: #0056b3 !important; /* Темно-синяя граница / Dark blue border */
+  font-weight: bold; /* Жирный / Bold */
 }
 
 .clue-item.completed {
-  background: #d4edda !important;
-  border-left-color: #28a745 !important;
+  background: #d4edda !important; /* Зеленый фон / Green background */
+  border-left-color: #28a745 !important; /* Зеленая граница / Green border */
 }
 
 .clue-number {
-  font-weight: bold;
-  margin-right: 8px;
+  font-weight: bold; /* Жирный / Bold */
+  margin-right: 8px; /* Отступ справа / Right margin */
 }
 
 .clue-text {
-  transition: all 0.3s ease;
+  transition: all 0.3s ease; /* Плавная анимация / Smooth animation */
 }
 
-/* Word completion animation */
+/* Word completion animation / Анимация завершения слова */
 @keyframes celebrate {
   0% {
-    transform: scale(1);
-    background: #fff3cd;
+    transform: scale(1); /* Обычный размер / Normal size */
+    background: #fff3cd; /* Желтый фон / Yellow background */
   }
   50% {
-    transform: scale(1.1);
-    background: #d4edda;
+    transform: scale(1.1); /* Увеличение / Scale up */
+    background: #d4edda; /* Зеленый фон / Green background */
   }
   100% {
-    transform: scale(1);
-    background: #d4edda;
+    transform: scale(1); /* Обычный размер / Normal size */
+    background: #d4edda; /* Зеленый фон / Green background */
   }
 }
 
 .word-complete {
-  animation: celebrate 0.6s ease-in-out;
+  animation: celebrate 0.6s ease-in-out; /* Анимация завершения / Completion animation */
 }
 
-/* Input field enhancements */
+/* Input field enhancements / Улучшения для поля ввода */
 .cell input {
-  transition: all 0.2s ease;
+  transition: all 0.2s ease; /* Плавная анимация / Smooth animation */
 }
 
 .cell input:focus {
-  outline: none;
-  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+  outline: none; /* Без обводки / No outline */
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3); /* Синяя тень / Blue shadow */
 }
 
-/* Success message styling */
+/* Success message styling / Стили для сообщения об успехе */
 .success-message {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #28a745;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 6px;
-  font-weight: bold;
-  animation: slideIn 0.3s ease-out;
-  z-index: 1000;
+  position: fixed; /* Фиксированное положение / Fixed position */
+  top: 20px; /* 20px от верха / 20px from top */
+  right: 20px; /* 20px от правого края / 20px from right */
+  background: #28a745; /* Зеленый фон / Green background */
+  color: white; /* Белый текст / White text */
+  padding: 12px 20px; /* Внутренние отступы / Inner padding */
+  border-radius: 6px; /* Скругленные углы / Rounded corners */
+  font-weight: bold; /* Жирный / Bold */
+  animation: slideIn 0.3s ease-out; /* Анимация появления / Slide in animation */
+  z-index: 1000; /* Поверх всего / On top */
 }
 
 @keyframes slideIn {
   from {
-    transform: translateX(100%);
-    opacity: 0;
+    transform: translateX(100%); /* Сдвиг справа / Shift from right */
+    opacity: 0; /* Прозрачность / Opacity */
   }
   to {
-    transform: translateX(0);
-    opacity: 1;
+    transform: translateX(0); /* Без сдвига / No shift */
+    opacity: 1; /* Полная видимость / Full opacity */
   }
 }
 
-/* Responsive improvements for interactivity */
+/* Responsive improvements for interactivity / Адаптивные улучшения интерактива */
 @media (max-width: 768px) {
   .clue-item.clickable {
-    padding: 12px;
-    font-size: 14px;
+    padding: 12px; /* Внутренний отступ / Inner padding */
+    font-size: 14px; /* Размер шрифта / Font size */
   }
 
   .clue-item.clickable:hover {
-    transform: none; /* Remove transform on mobile */
+    transform: none; /* Без смещения на мобиле / No shift on mobile */
   }
+}
+
+.buttons-container {
+  margin: 20px 0; /* Внешний отступ / Outer margin */
+  display: flex; /* Flexbox / Flexbox */
+  gap: 10px; /* Расстояние между / Gap between */
+  flex-wrap: wrap; /* Перенос строк / Wrap lines */
+}
+
+.mybtn {
+  background: #e74c3c; /* Красный фон / Red background */
+  color: white; /* Белый текст / White text */
+  padding: 12px 20px; /* Внутренние отступы / Inner padding */
+  border: none; /* Без рамки / No border */
+  border-radius: 8px; /* Скругленные углы / Rounded corners */
+  cursor: pointer; /* Курсор-указатель / Pointer cursor */
+  font-size: 14px; /* Размер шрифта / Font size */
+  font-weight: bold; /* Жирный / Bold */
+}
+
+.mybtn:hover {
+  opacity: 0.8; /* Прозрачность при наведении / Opacity on hover */
 }
