@@ -43,24 +43,34 @@ h1 {
 }
 
 /* ===== СЕТКА КРОССВОРДА ===== */
-.crossword-grid {
-  display: grid; /* CSS Grid для ячеек */
-  grid-template-columns: repeat(16, 1fr); /* 16 колонок по ширине */
-  grid-template-rows: repeat(12, 1fr); /* 12 рядов по высоте - оптимизировано */
-  gap: 2px; /* Промежуток между ячейками */
-  width: 100%; /* Занимает всю ширину контейнера */
-  aspect-ratio: 16/12; /* Прямоугольная сетка 16:12 - оптимизировано */
-  max-width: 720px; /* Оптимизированная ширина для 16x12 сетки */
-  background: #ddd; /* Серый фон для промежутков */
-  padding: 10px; /* Отступы вокруг сетки */
-  border-radius: 8px; /* Закругленные углы */
-  margin: 0 auto; /* Центрируем */
+#crossword-grid {
+  display: grid; /* CSS Grid / CSS Grid */
+  grid-template-columns: repeat(
+    var(--columns, 16),
+    1fr
+  ); /* Динамическое количество колонок / Dynamic columns */
+  grid-template-rows: repeat(
+    var(--rows, 12),
+    1fr
+  ); /* Динамическое количество рядов / Dynamic rows */
+  gap: 1px; /* Промежуток / Gap */
+  background: #333; /* Темный фон / Dark background */
+  border: 2px solid #ddd; /* Серая рамка / Gray border */
+  padding: 5px; /* Внутренний отступ / Inner padding */
+  aspect-ratio: var(--columns, 16) / var(--rows, 12); /* Динамическое соотношение / Dynamic aspect ratio */
+  max-width: 720px; /* Макс. ширина / Max width */
+  margin: 0 auto; /* Центрирование / Centering */
+  padding-bottom: 16px; /* Добавляем нижний отступ для контейнера / Add bottom padding for container */
+  box-sizing: border-box; /* Включаем padding в размер / Include padding in size */
+  position: sticky; /* Фиксируем при прокрутке / Stick on scroll */
+  top: 20px; /* Отступ сверху (можно изменить) / Top offset */
+  z-index: 100;
 }
 
 /* Стили для ячейки кроссворда */
 .cell {
-  background: white; /* Белый фон ячейки */
-  border: 1px solid #ccc; /* Серая рамка */
+  background: white; /* Белый фон / White background */
+  border: 1px solid #ddd; /* Серая рамка / Gray border */
   display: flex; /* Flexbox для центрирования */
   align-items: center; /* Вертикальное центрирование */
   justify-content: center; /* Горизонтальное центрирование */
@@ -68,9 +78,9 @@ h1 {
   font-weight: bold; /* Жирный шрифт */
   cursor: pointer; /* Курсор-указатель */
   position: relative; /* Для размещения номера */
-  aspect-ratio: 1; /* Квадратные ячейки */
-  min-width: 30px; /* Минимальная ширина ячейки */
-  min-height: 30px; /* Минимальная высота ячейки */
+  aspect-ratio: 1 / 1; /* Квадратные ячейки / Square cells */
+  width: 100%; /* Ячейка занимает всю ширину / Full width */
+  height: 100%; /* Ячейка занимает всю высоту / Full height */
   transition: all 0.2s ease; /* Плавные переходы / Smooth transitions */
 }
 
@@ -230,15 +240,26 @@ button:hover {
 
 #crossword-grid {
   display: grid; /* CSS Grid / CSS Grid */
-  grid-template-columns: repeat(16, 1fr); /* 16 колонок / 16 columns */
-  grid-template-rows: repeat(12, 1fr); /* 12 рядов / 12 rows */
+  grid-template-columns: repeat(
+    var(--columns, 16),
+    1fr
+  ); /* Динамическое количество колонок / Dynamic columns */
+  grid-template-rows: repeat(
+    var(--rows, 12),
+    1fr
+  ); /* Динамическое количество рядов / Dynamic rows */
   gap: 1px; /* Промежуток / Gap */
   background: #333; /* Темный фон / Dark background */
   border: 2px solid #ddd; /* Серая рамка / Gray border */
   padding: 5px; /* Внутренний отступ / Inner padding */
-  aspect-ratio: 16/12; /* Пропорции / Aspect ratio */
+  aspect-ratio: var(--columns, 16) / var(--rows, 12); /* Динамическое соотношение / Dynamic aspect ratio */
   max-width: 720px; /* Макс. ширина / Max width */
   margin: 0 auto; /* Центрирование / Centering */
+  padding-bottom: 16px; /* Добавляем нижний отступ для контейнера / Add bottom padding for container */
+  box-sizing: border-box; /* Включаем padding в размер / Include padding in size */
+  position: sticky; /* Фиксируем при прокрутке / Stick on scroll */
+  top: 20px; /* Отступ сверху (можно изменить) / Top offset */
+  z-index: 100;
 }
 
 .cell {
@@ -248,9 +269,9 @@ button:hover {
   align-items: center; /* Вертикальное центрирование / Vertical center */
   justify-content: center; /* Горизонтальное центрирование / Horizontal center */
   position: relative; /* Для номера / For number */
-  aspect-ratio: 1; /* Квадрат / Square */
-  min-width: 30px; /* Мин. ширина / Min width */
-  min-height: 30px; /* Мин. высота / Min height */
+  aspect-ratio: 1 / 1; /* Квадратные ячейки / Square cells */
+  width: 100%; /* Ячейка занимает всю ширину / Full width */
+  height: 100%; /* Ячейка занимает всю высоту / Full height */
 }
 
 .cell.black {
